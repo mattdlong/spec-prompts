@@ -17,6 +17,11 @@
 - [ ] API Specifications - `/specifications/APISpecifications.md`
 - [ ] Technical Requirements - `/specifications/TechnicalRequirements.md`
 - [ ] Development Plan - `/specifications/DevelopmentPlan.md`
+- [ ] Design System Document - `/specifications/DesignSystem.md`
+- [ ] UI Design Specifications - `/specifications/UIDesignSpecifications.md`
+- [ ] Component Technical Specification - `/specifications/ComponentTechnicalSpecification.md`
+- [ ] Storybook Documentation - `/specifications/StorybookDocumentation.md`
+- [ ] Test Plan - `/specifications/TestPlan.md`
 
 ## Current Status
 [Brief summary of current status, what you're working on, and any blockers]

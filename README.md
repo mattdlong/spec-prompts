@@ -28,6 +28,11 @@ graph TD
     H --> J["Technical Requirements"]
     I --> J
     J --> K["Development Plan"]
+    J --> L["Design System"]
+    L --> M["UI Design Specifications"]
+    M --> N["Component Technical Specification"]
+    N --> O["Storybook Documentation"]
+    J --> P["Test Plan"]
 ```
 
 ## Dependencies and Required Inputs
@@ -127,6 +132,57 @@ Each prompt relies on specific information from previous documents. Here's a bre
   - Timeline constraints
   - Resource allocation
   - Risk factors
+
+### 12. Design System Document (`design-system-prompt.md`)
+- **Dependencies**: Vision Statement, BRD, User Personas, PRD
+- **Required User Input**:
+  - Design principles
+  - Brand attributes
+  - Color palette specifications
+  - Typography guidelines
+  - Spacing and layout preferences
+  - Component design guidelines
+  - Accessibility requirements
+
+### 13. UI Design Specifications (`ui-design-specifications-prompt.md`)
+- **Dependencies**: Vision Statement, User Personas, User Journey Maps, PRD, Design System
+- **Required User Input**:
+  - Screen design requirements
+  - Interaction patterns
+  - Responsive design guidelines
+  - State handling (loading, error, empty states)
+  - Animation and transition specifications
+  - Implementation priorities
+
+### 14. Component Technical Specification (`component-technical-specification-prompt.md`)
+- **Dependencies**: Design System, UI Design Specifications, System Architecture
+- **Required User Input**:
+  - Component API design preferences
+  - State management approach
+  - Accessibility implementation requirements
+  - Testing strategy for components
+  - Performance optimization requirements
+  - Component documentation standards
+
+### 15. Storybook Documentation (`storybook-prompt.md`)
+- **Dependencies**: Design System, UI Design Specifications, Component Technical Specification
+- **Required User Input**:
+  - Storybook organization preferences
+  - Component demonstration requirements
+  - Documentation standards
+  - Testing integration approach
+  - Example story requirements
+
+### 16. Test Plan (`test-plan-prompt.md`)
+- **Dependencies**: FSD, Technical Requirements, UI Design Specifications, Component Technical Specification
+- **Required User Input**:
+  - Testing scope and objectives
+  - Test environment requirements
+  - Test data specifications
+  - Test automation approach
+  - Performance testing criteria
+  - Security testing requirements
+  - Acceptance criteria
 
 ## Usage Instructions
 
