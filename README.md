@@ -17,17 +17,17 @@ The prompts should be executed in the following order to ensure proper dependenc
 
 ```mermaid
 graph TD
-    A[1. Vision Statement] --> B[2. Business Requirements Document]
-    B --> C[3. User Personas]
-    C --> D[4. User Journey Maps]
-    D --> E[5. Product Requirements Document]
-    E --> F[6. Functional Specification Document]
-    F --> G[7. System Architecture Document]
-    G --> H[8. Data Model Document]
-    G --> I[9. API Specifications]
-    H --> J[10. Technical Requirements]
+    A["Vision Statement"] --> B["Business Requirements"]
+    B --> C["User Personas"]
+    C --> D["User Journey Maps"]
+    D --> E["Product Requirements"]
+    E --> F["Functional Specifications"]
+    F --> G["System Architecture"]
+    G --> H["Data Model"]
+    G --> I["API Specifications"]
+    H --> J["Technical Requirements"]
     I --> J
-    J --> K[11. Development Plan]
+    J --> K["Development Plan"]
 ```
 
 ## Dependencies and Required Inputs
