@@ -1,15 +1,16 @@
-# Software Specification Prompts
+# Yoga Schedule Manager - Project Documentation
 
-This repository contains a collection of specialized prompts designed to generate comprehensive software specification documents for your project. When used in sequence, these prompts will guide you through creating a complete set of documentation from vision statement to development plan.
+This repository contains the comprehensive documentation for the Yoga Schedule Manager application. It follows a structured approach to software specification, from vision statement to implementation details.
 
 ## Overview
 
-The specification prompts system helps you create professional software documentation by:
+The Yoga Schedule Manager will help yoga studios and independent teachers manage their class schedules, student registrations, and business operations. This documentation repository:
 
-1. Breaking down the documentation process into logical steps
-2. Ensuring each document builds on previous ones
-3. Maintaining consistency across all specifications
-4. Providing clear templates for each document type
+1. Breaking down the development process into logical documentation steps
+2. Ensuring each document builds on previous ones for consistency
+3. Maintaining traceability from business requirements to technical implementation
+4. Providing clear specifications for all aspects of the application
+5. Organizing implementation into sequential sprints and detailed tickets
 
 ## Document Flow
 
@@ -33,6 +34,18 @@ graph TD
     M --> N["Component Technical Specification"]
     N --> O["Storybook Documentation"]
     J --> P["Test Plan"]
+    
+    %% Development Standards
+    G --> T["Microservice Rules"]
+    G --> U["Frontend Rules"]
+    
+    %% Implementation Planning
+    K --> Q["Sprint Planning"]
+    P --> Q
+    T --> Q
+    U --> Q
+    Q --> R["Implementation Tickets"]
+    R --> S["Implementation Progress"]
 ```
 
 ## Dependencies and Required Inputs
@@ -184,36 +197,158 @@ Each prompt relies on specific information from previous documents. Here's a bre
   - Security testing requirements
   - Acceptance criteria
 
+### 17. Microservice Rules (`microservice-rules-prompt.md`)
+- **Dependencies**: System Architecture, Technical Requirements, API Specifications, Data Model
+- **Required User Input**:
+  - Technology stack details from System Architecture
+  - API standards and requirements
+  - Performance requirements
+  - Security requirements
+  - Organizational coding standards
+  - Team experience level with selected technologies
+  - Target deployment environment details
+  - Monitoring and observability requirements
+
+### 18. Frontend Rules (`frontend-rules-prompt.md`)
+- **Dependencies**: System Architecture, Technical Requirements, Design System, UI Design Specifications, Component Technical Specification
+- **Required User Input**:
+  - UI framework/library details
+  - State management approach
+  - Design system information
+  - Component architecture requirements
+  - Performance requirements
+  - Accessibility requirements
+  - Browser/device support requirements
+  - Organizational coding standards
+
+### 19. Sprint Planning (`sprint-planning-prompt.md`)
+- **Dependencies**: Development Plan, Test Plan, Microservice Rules, Frontend Rules
+- **Required User Input**:
+  - Project title and brief description
+  - Overall timeline constraints
+  - Team composition and skills
+  - Development methodology preference
+  - Sprint duration preference
+  - Desired velocity or work capacity per sprint
+  - Prioritization criteria
+  - Location of specification documents
+
+### 20. Implementation Tickets (`ticket-template.md`)
+- **Dependencies**: Sprint Planning
+- **Required User Input**:
+  - Ticket title and description
+  - Priority and effort estimation
+  - Acceptance criteria
+  - Dependencies on other tickets
+  - Technical references to specification documents
+  - Implementation notes and guidelines
+
+### 21. Implementation Progress Tracking (`sprint-progress-template.md`)
+- **Dependencies**: Sprint Planning, Implementation Tickets
+- **Required User Input**:
+  - Sprint status updates
+  - Completed features
+  - Current work status
+  - Blockers and risks
+  - Implementation metrics
+  - Architectural decisions
+  - Retrospective insights
+
 ## Usage Instructions
+
+### Documentation Phase
 
 1. **Create the `/specifications` directory** in your project root (if it doesn't exist already)
    ```
    mkdir -p specifications
    ```
 
-2. **Initialize the progress tracking file**
+2. **Initialize the documentation progress tracking file**
    ```
    touch progress.md
    ```
 
 3. **Follow the document flow** outlined above, starting with the Vision Statement and proceeding in order
 
-4. **For each prompt**:
+4. **For each documentation prompt**:
    - Review the prompt file to understand its requirements
    - Gather the required user input
    - Generate the document using the prompt
    - Save the output to the `/specifications` directory with the appropriate filename
    - Update the progress.md file
 
-## Maintaining the Progress.md File
+### Development Standards Phase
 
-The progress.md file helps you track your documentation progress. Update it after completing each document with the following information:
+1. **Create development standards documents** after completing the system architecture
+   - Use the microservice-rules-prompt.md to create microservice development standards
+   - Use the frontend-rules-prompt.md to create frontend development standards
+   
+2. **For each standards document**:
+   - Reference the appropriate specification documents (System Architecture, Technical Requirements, etc.)
+   - Ensure standards align with architectural decisions
+   - Create concrete examples of proper implementation
+   - Save the output to the `/specifications` directory with the appropriate filename
+   - Update the progress.md file
+
+### Implementation Planning Phase
+
+1. **Create the `/sprints` directory** in your project root
+   ```
+   mkdir -p sprints
+   ```
+
+2. **Initialize the implementation progress tracking file**
+   ```
+   touch sprints/progress.md
+   ```
+
+3. **Create sprint planning document** using the sprint-planning-prompt.md
+   - Review all specification documents
+   - Identify logical development phases
+   - Define sprint objectives and timeframes
+
+4. **Create sprint subdirectories** for each planned sprint
+   ```
+   mkdir -p sprints/sprint_01
+   mkdir -p sprints/sprint_02
+   # etc.
+   ```
+
+5. **Create implementation tickets** in each sprint directory
+   - Use the ticket-template.md as a guide
+   - Follow the naming convention: ticket_sprint01_ticket01.md
+   - Ensure dependencies between tickets are clearly documented
+   - Reference relevant specification documents
+
+6. **Maintain the implementation progress tracking file** (sprints/progress.md)
+   - Update after each sprint
+   - Track completed features
+   - Document architectural decisions
+   - Note blockers and risks
+
+## Maintaining Progress Files
+
+### Documentation Progress (progress.md)
+
+The documentation progress file helps you track your specification document creation. Update it after completing each document with the following information:
 
 1. Check the box for the completed document
 2. Add the completion date
 3. Update the "Current Status" section
 4. Update the "Next Steps" section
 5. Add any relevant notes or decisions made
+
+### Implementation Progress (sprints/progress.md)
+
+The implementation progress file tracks the actual development of the project. Update it after each sprint with:
+
+1. Update the "Sprint Status" section with completed sprints and achievements
+2. Update the "Current Sprint" section with objectives and progress
+3. Document completed features with references to specification documents
+4. Track current work with ticket IDs and statuses
+5. Note any blockers, risks, or architectural decisions
+6. Update implementation metrics (velocity, test coverage, etc.)
+7. Capture retrospective insights for continuous improvement
 
 ## Notes
 
@@ -224,11 +359,25 @@ The progress.md file helps you track your documentation progress. Update it afte
 
 ## Example Workflow
 
+### Documentation Workflow
+
 1. Start by reviewing the vision-statement-prompt.md
 2. Provide the required inputs for your Vision Statement
 3. Generate the Vision.md document and save it to /specifications/
 4. Update progress.md to mark Vision Statement as complete
 5. Proceed to the BRD prompt, referring to your completed Vision Statement
-6. Continue through each document in sequence
+6. Continue through each document in sequence until you have a complete set of specification documents
 
-By following this structured approach, you'll create a comprehensive set of software specification documents that maintain consistency and traceability throughout your project.
+### Implementation Planning Workflow
+
+1. After completing all specification documents, use the sprint-planning-prompt.md to create a sprint plan
+2. Break down the project into logical sprints based on dependencies and complexity
+3. Create sprint folders and individual implementation tickets for each sprint
+4. For each ticket:
+   - Include clear references to specification documents
+   - Define acceptance criteria based on specs
+   - Document dependencies on other tickets
+5. Begin implementation tracking as development starts
+6. Update the sprints/progress.md file after each sprint
+
+By following this structured approach, you'll create a comprehensive set of software specification documents and a well-organized implementation plan that maintains consistency and traceability throughout your project's lifecycle.
